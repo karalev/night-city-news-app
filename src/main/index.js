@@ -26,9 +26,9 @@ function Main({ selectedID, links }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const playersText = await axios.get(`http://localhost:8080/player/${selectedID}`);
+      const playersText = await axios.get(`/player/${selectedID}`);
       setPlayersNews(playersText.data);
-      const response = await axios.get(`http://localhost:8080/${links[selectedID]}`);
+      const response = await axios.get(`/${links[selectedID]}`);
       switch (selectedID) {
         case 0:
           setNews(parseRSS(response));
